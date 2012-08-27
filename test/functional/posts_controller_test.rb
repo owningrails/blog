@@ -22,6 +22,7 @@ class PostsControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to post_path(assigns(:post))
+    assert_not_nil flash[:notice]
   end
 
   test "should show post" do
@@ -37,6 +38,7 @@ class PostsControllerTest < ActionController::TestCase
   test "should update post" do
     put :update, id: @post, post: { body: @post.body, title: @post.title }
     assert_redirected_to post_path(assigns(:post))
+    assert_not_nil flash[:notice]
   end
 
   test "should destroy post" do
