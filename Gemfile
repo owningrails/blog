@@ -29,7 +29,7 @@ gem 'jquery-rails'
 # gem 'jbuilder'
 
 # Use thin as the app server
-gem 'thin'
+gem 'thin', :platforms => :ruby
 
 # Deploy with Capistrano
 # gem 'capistrano'
