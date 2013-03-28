@@ -36,3 +36,5 @@ gem 'thin', :platforms => :ruby
 
 # To use debugger
 # gem 'debugger'
+
+gem 'geminabox'
