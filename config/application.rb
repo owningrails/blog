@@ -20,8 +20,5 @@ module Blog
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.i18n.enforce_available_locales = true
-
-    config.middleware.swap Rails::Rack::Logger, "CustomLogger"
-    config.middleware.use "SinatraMiddleware"
   end
 end

@@ -1,25 +1,18 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html, :json
-
   # GET /posts
   def index
     @posts = Post.all
-
-    respond_with @posts
   end
 
   # GET /posts/1
   def show
-    respond_with @post
   end
 
   # GET /posts/new
   def new
     @post = Post.new
-
-    respond_with @post
   end
 
   # GET /posts/1/edit
@@ -28,23 +21,28 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    @post = Post.create(post_params)
+    @post = Post.new(post_params)
 
-    respond_with @post
+    if @post.save
+      redirect_to @post, notice: 'Post was successfully created.'
+    else
+      render :new
+    end
   end
 
   # PATCH/PUT /posts/1
   def update
-    @post.update(post_params)
-
-    respond_with @post
+    if @post.update(post_params)
+      redirect_to @post, notice: 'Post was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   # DELETE /posts/1
   def destroy
     @post.destroy
-
-    respond_with @post
+    redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
 
   private
