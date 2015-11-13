@@ -1,14 +1,41 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Blog</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<%= yield %>
+    <title>My Blog</title>
 
-</body>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <%= link_to "My Blog", root_path, class: "navbar-brand" %>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <p class="navbar-btn">
+              <%= link_to "Post", new_post_path, class: "btn btn-primary" %>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <p><%= notice %></p>
+      <p><%= alert %></p>
+
+      <%= yield %>
+    </div>
+
+    </div><!-- /.container -->
+  </body>
 </html>

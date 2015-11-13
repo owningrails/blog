@@ -44,4 +44,4 @@ gem 'thin', platforms: :ruby
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'sinatra'
+gem 'bootstrap-sass', '~> 3.3.5'

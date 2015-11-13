@@ -25,6 +25,14 @@ class PostsControllerTest < ActionController::TestCase
     assert_not_nil flash.notice
   end
 
+  test "should create post from API" do
+    assert_difference('Post.count') do
+      post :create, post: { body: @post.body, title: @post.title }, format: :json
+    end
+
+    assert_response :success
+  end
+
   test "should show post" do
     get :show, id: @post
     assert_response :success

@@ -23,10 +23,14 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
 
-    if @post.save
-      redirect_to @post, notice: 'Post was successfully created.'
-    else
-      render :new
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.json { render json: @post }
+      else
+        format.html { render :new }
+        format.json { render json: @post.errors }
+      end
     end
   end
 
