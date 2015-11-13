@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
+    @posts = Post.recent
   end
 
   # GET /posts/1
@@ -22,6 +22,7 @@ class PostsController < ApplicationController
   # POST /posts
   def create
     @post = Post.new(post_params)
+    # @post.created_by_ip = ...
 
     respond_to do |format|
       if @post.save

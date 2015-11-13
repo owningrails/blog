@@ -3,7 +3,10 @@
     <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-info" %>
     <%= link_to 'Delete', post_path(@post), method: :delete, class: "btn btn-danger" %>
   </div>
+
   <h1><%= @post.title %></h1>
+
+  <small>Created by IP: <%= @post.created_by_ip %></small>
 </div>
 
 <%= simple_format h(@post.body) %>

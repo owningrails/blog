@@ -3,6 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :title
       t.text :body
+      t.string :created_by_ip
 
       t.timestamps
     end
