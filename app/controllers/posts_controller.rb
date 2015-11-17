@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   # POST /posts
   def create
     @post = Post.new(post_params)
-    # @post.created_by_ip = ...
+    @post.created_by_ip = request.remote_ip
 
     respond_to do |format|
       if @post.save
